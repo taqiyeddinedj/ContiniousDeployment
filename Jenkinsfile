@@ -4,26 +4,13 @@ def gv
 pipeline {
     agent any
     stages {
-        stage('Init') {
-            steps {
-                script {
-                    gv = load "script.groovy"
-                }
-            }
-        }
-        stage('test') {
-            steps {
-                script {
-                    echo "Testing the application"
-                }
-            }
-        }
+        
         stage ('Deploy to K8S'){
             steps {
-                script {
-                    gv.deploytok8s()
+                //gv.deploytok8s()
+                sh 'kubectl apply -f webapp-deployment.yaml'
                     
-                }
+                
             }
         }
     }
