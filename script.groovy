@@ -9,7 +9,7 @@ def buildDockerImage() {
 
 def deploytok8s() {
     echo "Deploying now the apllication on the kubernetes cluster"
-    kubernetesDeploy (configs: 'webapp-deployment.yaml', kubeconfigId: 'kubernetes')
+    kubernetesDeploy configs: '', kubeConfig: [path: ''], kubeconfigId: '', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
 }
 
 return this
