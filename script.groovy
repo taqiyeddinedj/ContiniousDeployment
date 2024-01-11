@@ -9,7 +9,7 @@ def buildDockerImage() {
 
 def deploytok8s() {
     echo "Deploying now the apllication on the kubernetes cluster"
-    kubernetesDeploy (configs: 'deployment.yaml', kubeconfigId: 'kubernetes')
+    kubernetesDeploy (configs: 'webapp-deployment.yaml', kubeconfigId: 'kubernetes')
 }
 
 return this
