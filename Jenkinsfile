@@ -8,7 +8,7 @@ pipeline {
         stage ('Deploy to K8S'){
             steps {
                 //gv.deploytok8s()
-                sh 'kubectl apply -f webapp-deployment.yaml'
+                kubernetesDeploy configs: 'webapp-deployment.yaml',kubeconfigId: 'kubernetes'
                     
                 
             }
